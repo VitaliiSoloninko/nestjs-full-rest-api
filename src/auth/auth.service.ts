@@ -18,16 +18,16 @@ export class AuthService {
 		const candidate = await this.userService.getUserByEmail(userDto.email)
 		if (candidate) {
 			throw new HttpException(
-				'A user with this email already exists',
+				'User with this email already exists',
 				HttpStatus.BAD_REQUEST
 			)
-			const hashPassword = await bcrypt.hash(userDto.password, 5)
-			const user = await this.userService.createUser({
-				...userDto,
-				password: hashPassword,
-			})
-			return this.generateToken(user)
 		}
+		const hashPassword = await bcrypt.hash(userDto.password, 5)
+		const user = await this.userService.createUser({
+			...userDto,
+			password: hashPassword,
+		})
+		return this.generateToken(user)
 	}
 	async generateToken(user: User) {
 		const payload = { email: user.email, id: user.id, roles: user.roles }
