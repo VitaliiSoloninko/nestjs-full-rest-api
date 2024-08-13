@@ -1,4 +1,8 @@
-import { CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common'
+import {
+	CanActivate,
+	ExecutionContext,
+	UnauthorizedException,
+} from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { Observable } from 'rxjs'
 
@@ -15,13 +19,14 @@ export class JwtAuthGuart implements CanActivate {
 			const token = authHeader.split('')[1]
 
 			if (bearer !== 'Bearer' || !token) {
-				throw new UnauthorizedException({'User is not authorized'})
+				throw new UnauthorizedException({ message: 'User is not authorized' })
 			}
 
-			const user =this.jwtService.verify(token)
-
+			const user = this.jwtService.verify(token)
+			req.user = user
+			return true
 		} catch (e) {
-			throw new UnauthorizedException({'User is not authorized'})
+			throw new UnauthorizedException({ message: 'User is not authorized' })
 		}
 	}
 }
