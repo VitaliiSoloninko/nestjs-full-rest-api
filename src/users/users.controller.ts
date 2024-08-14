@@ -4,6 +4,8 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
 import { CreateUserDto } from './dto/create-user.dto'
 import { User } from './users.model'
 import { UsersService } from './users.service'
+import { Roles } from 'src/auth/roles-auth.decorator'
+import { RolesGuard } from 'src/auth/roles.guard'
 
 @ApiTags('Users')
 @Controller('users')
@@ -19,8 +21,10 @@ export class UsersController {
 
 	@ApiOperation({ summary: 'Get all users' })
 	@ApiResponse({ status: 200, type: [User] })
-	// Restricting access to unauthorized users @UseGuards(JwtAuthGuard)
-	@UseGuards(JwtAuthGuard)
+	@Roles('ADMIN')
+	@UseGuards(RolesGuard)
+	// Restricting access to UNauthorized users
+	// @UseGuards(JwtAuthGuard)
 	@Get()
 	getAll() {
 		return this.userService.getAllUsers()
