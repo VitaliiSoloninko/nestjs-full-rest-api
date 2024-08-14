@@ -9,3 +9,4 @@ Plan
 - API documentation. Swagger.
 - User roles.
 - AuthModule. Registration. Authorization. JWT Token.
+- Guards. CanActivate. Restricting access to unauthorized users.
