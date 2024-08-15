@@ -3,7 +3,7 @@ NEST.JS REST API
 ENDPOINTS:
 http://localhost:5000/users (Post, GetAll)
 http://localhost:5000/api/docs
-http://localhost:5000/roles
+http://localhost:5000/roles (Post, GetByValue)
 http://localhost:5000/auth/registration
 http://localhost:5000/auth/login
 
