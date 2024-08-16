@@ -6,6 +6,8 @@ http://localhost:5000/api/docs
 http://localhost:5000/roles (Post, GetByValue)
 http://localhost:5000/auth/registration
 http://localhost:5000/auth/login
+http://localhost:5000/users/role
+http://localhost:5000/users/ban
 
 Stages of project development:
 v0.2 PostgreSQL. Sequelize. Connecting to the database.
@@ -16,3 +18,4 @@ v0.5 Users roles. Roles endpoint: (/roles) Post, GetByValue
 v0.6 AuthModule. Registration. Authorization. JWT Token. Auth endpoint: (/auth) /login /registration
 v0.7 Guards. CanActivate. Restricting access to GetAllUsers in user.controller to unauthorized users.
 v0.8 RolesGuard. Roles decorator. Restricting access to GetAllUsers in user.controller without ADMIN role.
+v0.9 Add users role. Banning user. Endpoints /users/ban /users/role

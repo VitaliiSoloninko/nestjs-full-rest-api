@@ -52,7 +52,7 @@ export class User extends Model<User, UserCreationAttrs> {
 		description: 'Reason for blocking',
 	})
 	@Column({
-		type: DataType.BOOLEAN,
+		type: DataType.STRING,
 		allowNull: true,
 	})
 	banReason: string
