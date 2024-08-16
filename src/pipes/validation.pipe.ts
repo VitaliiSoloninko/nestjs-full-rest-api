@@ -1,7 +1,7 @@
 import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common'
 import { plainToClass } from 'class-transformer'
 import { validate } from 'class-validator'
-import { ValidationException } from 'src/exeptions/validation.exception'
+import { ValidationException } from 'src/exceptions/validation.exception'
 
 @Injectable()
 export class ValidationPipe implements PipeTransform<any> {
@@ -10,9 +10,12 @@ export class ValidationPipe implements PipeTransform<any> {
 		const errors = await validate(obj)
 
 		if (errors.length) {
-			console.log(errors)
-			throw new ValidationException('')
+			let messages = errors.map(err => {
+				return `${err.property} - ${Object.values(err.constraints).join(', ')}`
+			})
+			throw new ValidationException(messages)
 		}
+		console.log(errors)
 		return value
 	}
 }
