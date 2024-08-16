@@ -19,3 +19,4 @@ v0.6 AuthModule. Registration. Authorization. JWT Token. Auth endpoint: (/auth) 
 v0.7 Guards. CanActivate. Restricting access to GetAllUsers in user.controller to unauthorized users.
 v0.8 RolesGuard. Roles decorator. Restricting access to GetAllUsers in user.controller without ADMIN role.
 v0.9 Add users role. Banning user. Endpoints /users/ban /users/role
+v0.9.3 Pipes. Input validation. Class-validator. @IsString, @IsEmail, @Length
