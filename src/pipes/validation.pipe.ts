@@ -15,7 +15,6 @@ export class ValidationPipe implements PipeTransform<any> {
 			})
 			throw new ValidationException(messages)
 		}
-		console.log(errors)
 		return value
 	}
 }
