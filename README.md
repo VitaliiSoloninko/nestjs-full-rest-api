@@ -21,3 +21,4 @@ v0.7 Guards. CanActivate. Restricting access to GetAllUsers in user.controller t
 v0.8 RolesGuard. Roles decorator. Restricting access to GetAllUsers in user.controller without ADMIN role.
 v0.9 Add users role. Banning user. Endpoints /users/ban /users/role
 v0.9.3 Pipes. Input validation. Class-validator. @IsString, @IsEmail, @Length
+v0.9.14 Posts. One-to-many. @HasMany. FileService. Working with files. Distribution of static.
