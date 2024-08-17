@@ -4,6 +4,7 @@ import {
 	BelongsToMany,
 	Column,
 	DataType,
+	ForeignKey,
 	Model,
 	Table,
 } from 'sequelize-typescript'
@@ -43,6 +44,10 @@ export class Post extends Model<Post, PostCreationAttrs> {
 		type: DataType.STRING,
 	})
 	image: string
+
+	@ForeignKey(() => User)
+	@Column({ type: DataType.INTEGER })
+	userId: number
 
 	@BelongsTo(() => User)
 	autor: User
