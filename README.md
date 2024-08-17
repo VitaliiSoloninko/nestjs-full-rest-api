@@ -8,6 +8,7 @@ http://localhost:5000/auth/registration
 http://localhost:5000/auth/login
 http://localhost:5000/users/role
 http://localhost:5000/users/ban
+http://localhost:5000/posts (Post)
 
 Stages of project development:
 v0.2 PostgreSQL. Sequelize. Connecting to the database.
