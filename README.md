@@ -1,13 +1,21 @@
-NEST.JS REST API
+NEST.JS REST API (/users /roles /auth /posts /users/ban /users/role)
+
+BACKEND STACK
+1 Node.js
+2 NestJS
+3 PostgreSQL
+4 Sequelize
+5 Swagger
+6 Docker
 
 ENDPOINTS:
-http://localhost:5000/users (Post, GetAll)
+http://localhost:5000/users (Post, GetAll with ADMIN role)
 http://localhost:5000/api/docs
 http://localhost:5000/roles (Post, GetByValue)
 http://localhost:5000/auth/registration
 http://localhost:5000/auth/login
-http://localhost:5000/users/role
-http://localhost:5000/users/ban
+http://localhost:5000/users/role (Post - add new role with ADMIN role)
+http://localhost:5000/users/ban (Post - add to ban with ADMIN role)
 http://localhost:5000/posts (Post)
 
 Stages of project development:
@@ -22,3 +30,4 @@ v0.8 RolesGuard. Roles decorator. Restricting access to GetAllUsers in user.cont
 v0.9 Add users role. Banning user. Endpoints /users/ban /users/role
 v0.9.3 Pipes. Input validation. Class-validator. @IsString, @IsEmail, @Length
 v0.9.14 Posts. One-to-many. @HasMany. FileService. Working with files. Distribution of static.
+v1.0.0 NEST.JS REST API (/users /roles /auth /posts /users/ban /users/role)
