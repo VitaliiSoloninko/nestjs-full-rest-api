@@ -1,5 +1,3 @@
-version: '1.0'
-
 services:
   main:
     container_name: mail
@@ -24,8 +22,9 @@ services:
     env_file:
       - .development.env
     environment:
-      - PG/DATA: /var/lib/postgressql/data
-    ports: -5500:5500
+      - PG/DATA:/var/lib/postgressql/data
+    ports:
+      - 5500:5500
     volumes:
       - pgdata:/var/lib/postgressql/data
     restart: always
