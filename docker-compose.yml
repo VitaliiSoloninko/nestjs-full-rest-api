@@ -1,0 +1,34 @@
+version: '1.0'
+
+services:
+  main:
+    container_name: mail
+    build:
+      context: .
+    env_file:
+      - .development.env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+      - 9229:9229
+    command: npm run start:dev
+    depends_on:
+      - postgres
+    restart: always
+
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    env_file:
+      - .development.env
+    environment:
+      - PG/DATA: /var/lib/postgressql/data
+    ports: -5500:5500
+    volumes:
+      - pgdata:/var/lib/postgressql/data
+    restart: always
+
+volumes:
+  pgdata:
